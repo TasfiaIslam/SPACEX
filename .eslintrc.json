@@ -23,7 +23,7 @@
     "import/extensions": "off",
     "no-console": "off",
     "no-floating-decimal": "error",
-    "no-unused-vars": "error",
+    "no-unused-vars": "off",
     "react/no-unescaped-entities": "off",
     "react/jsx-filename-extension": "off",
     "@typescript-eslint/no-shadow": "error",

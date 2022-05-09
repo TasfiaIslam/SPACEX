@@ -5,9 +5,10 @@ import Launches from './features/launches/Launches';
 const App = (): JSX.Element => {
   return (
     <div className="App">
-      <header className="App-header">
+      {/* <header className="App-header">
         <Launches />
-      </header>
+      </header> */}
+      <Launches />
     </div>
   );
 };
