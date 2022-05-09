@@ -1,0 +1,51 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:@typescript-eslint/recommended"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": "latest",
+    "sourceType": "module",
+    "project": "./tsconfig.json"
+  },
+  "plugins": ["react", "@typescript-eslint"],
+  "rules": {
+    "import/no-relative-parent-imports": "off",
+    "import/extensions": "off",
+    "no-console": "off",
+    "no-floating-decimal": "error",
+    "no-unused-vars": "error",
+    "react/no-unescaped-entities": "off",
+    "react/jsx-filename-extension": "off",
+    "@typescript-eslint/no-shadow": "error",
+    "no-param-reassign": ["error", { "props": false }],
+    "import/no-extraneous-dependencies": "off",
+    "@typescript-eslint/no-explicit-any": "error",
+    "@typescript-eslint/interface-name-prefix": "off",
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "no-duplicate-imports": "error",
+    "react/display-name": "off",
+    "max-len": ["warn", { "code": 80, "ignoreComments": true }],
+    "prefer-arrow-callback": [
+      "error",
+      {
+        "allowNamedFunctions": false,
+        "allowUnboundThis": true
+      }
+    ],
+    "eol-last": ["error", "always"],
+    "no-const-assign": "error",
+    "prefer-const": "error",
+    "no-var": "error",
+    "spaced-comment": ["error", "always", { "markers": ["/"] }]
+  }
+}
