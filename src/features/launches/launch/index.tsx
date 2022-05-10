@@ -1,6 +1,7 @@
 import React from 'react';
 import { Card, Col } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import PLACEHOLDER_IMG from '../../../assets/img/placeholder.png';
 
 const DESCRIPTION_LIMIT = 80;
 
@@ -29,7 +30,7 @@ const Launch = ({
         Flight no: {!!flight_number && flight_number}
       </Card.Header>
       <Card.Body className="py-2">
-        <Card.Img variant="top" src={mission_patch_img ? mission_patch_img : ''} />
+        <Card.Img variant="top" src={mission_patch_img ? mission_patch_img : PLACEHOLDER_IMG} />
 
         <Card.Title className="font-weight-bold mt-2 text-warning">
           {!!mission_name && mission_name}

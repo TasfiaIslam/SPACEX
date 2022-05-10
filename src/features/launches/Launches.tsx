@@ -3,9 +3,15 @@ import { Container, Row, Col, Form } from 'react-bootstrap';
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import { getLaunches, selectLaunches, getLaunchesByRocket } from './launchSlice';
 import Launch from './launch';
+import ReactPaginate from 'react-paginate';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import './launches.style.css';
 
 const Launches = (): JSX.Element => {
+  const [currentItems, setCurrentItems] = useState(null);
+  const [pageCount, setPageCount] = useState(0);
+  const [itemOffset, setItemOffset] = useState(0);
+
   const [term, setTerm] = useState('');
   const [spacexData, setSpaceXData] = useState([]);
   const launchesData = useAppSelector(selectLaunches);
@@ -13,6 +19,20 @@ const Launches = (): JSX.Element => {
 
   const launches = launchesData?.list;
   const launchesByRocket = launchesData?.listByName;
+
+  const itemsPerPage = 10;
+
+  useEffect(() => {
+    const endOffset = itemOffset + itemsPerPage;
+    setCurrentItems(spacexData?.slice(itemOffset, endOffset));
+    setPageCount(Math.ceil(spacexData?.length / itemsPerPage));
+  }, [itemOffset, itemsPerPage]);
+
+  const handlePageClick = (event) => {
+    const newOffset = (event.selected * itemsPerPage) % spacexData?.length;
+    setItemOffset(newOffset);
+  };
+
   useEffect(() => {
     dispatch(getLaunches());
     setSpaceXData(launches);
@@ -50,7 +70,7 @@ const Launches = (): JSX.Element => {
         </Row>
 
         <Row>
-          {spacexData?.map((launch, index) => (
+          {currentItems?.map((launch, index) => (
             <Col className="col-12 col-sm-6 col-md-4 col-xl-3 gx-5" key={index}>
               <Row className="my-4">
                 <Launch
@@ -66,6 +86,18 @@ const Launches = (): JSX.Element => {
             </Col>
           ))}
         </Row>
+
+        <div className="d-flex align-items-center">
+          <ReactPaginate
+            breakLabel="..."
+            nextLabel=">"
+            onPageChange={handlePageClick}
+            pageRangeDisplayed={5}
+            pageCount={pageCount}
+            previousLabel="<"
+            renderOnZeroPageCount={null}
+          />
+        </div>
       </Container>
     </div>
   );
