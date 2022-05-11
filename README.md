@@ -3,7 +3,7 @@
 A website using the SPACEX rest api ([https://api.spacexdata.com/v3/launches](https://api.spacexdata.com/v3/launches))
 powered by React.js, redux-toolkit, typeScript and bootstrap 5.
 
-View live [SPACEX Web]()
+View live [SPACEX Web](https://spacex-redux.netlify.app/)
 
 ### Features
 
