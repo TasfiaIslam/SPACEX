@@ -1,15 +1,28 @@
-# Getting Started with Create React App
+## SPACEX Launches
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) TS template.
+A website using the SPACEX rest api ([https://api.spacexdata.com/v3/launches](https://api.spacexdata.com/v3/launches))
+powered by React.js, redux-toolkit, typeScript and bootstrap 5.
 
-## Available Scripts
+View live [SPACEX Web]()
 
-In the project directory, you can run:
+### Features
 
-### `npm start`
+- Show all launches in card view
+- Search by rocket name
+- Pagination
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Installation and Setup Instructions
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Clone down this repository. You will need `node` and `npm` installed globally on your machine.
+
+Installation:
+
+`npm install`
+
+To Start Server:
+
+`npm start`
+
+To Visit App:
+
+`localhost:3000`
