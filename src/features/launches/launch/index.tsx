@@ -30,9 +30,13 @@ const Launch = ({
         Flight no: {!!flight_number && flight_number}
       </Card.Header>
       <Card.Body className="py-2">
-        <Card.Img variant="top" src={mission_patch_img ? mission_patch_img : PLACEHOLDER_IMG} />
+        <Card.Img
+          variant="top"
+          src={mission_patch_img ? mission_patch_img : PLACEHOLDER_IMG}
+          style={{ height: 100, width: 100 }}
+        />
 
-        <Card.Title className="font-weight-bold mt-2 text-warning">
+        <Card.Title className="font-weight-bold mt-4 text-warning" style={{ height: 40 }}>
           {!!mission_name && mission_name}
         </Card.Title>
         <Card.Text className="fs-6 font-weight-light">

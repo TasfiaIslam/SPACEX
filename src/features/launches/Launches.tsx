@@ -22,21 +22,22 @@ const Launches = (): JSX.Element => {
 
   const itemsPerPage = 10;
 
-  useEffect(() => {
-    const endOffset = itemOffset + itemsPerPage;
-    setCurrentItems(spacexData?.slice(itemOffset, endOffset));
-    setPageCount(Math.ceil(spacexData?.length / itemsPerPage));
-  }, [itemOffset, itemsPerPage]);
-
-  const handlePageClick = (event) => {
-    const newOffset = (event.selected * itemsPerPage) % spacexData?.length;
-    setItemOffset(newOffset);
-  };
+  // useEffect(() => {
+  //   dispatch(getLaunches());
+  //   setSpaceXData(launches);
+  // }, [dispatch, term]);
 
   useEffect(() => {
     dispatch(getLaunches());
-    setSpaceXData(launches);
-  }, [dispatch, term]);
+    const endOffset = itemOffset + itemsPerPage;
+    setCurrentItems(launches?.slice(itemOffset, endOffset));
+    setPageCount(Math.ceil(launches?.length / itemsPerPage));
+  }, [itemOffset, itemsPerPage]);
+
+  const handlePageClick = (event) => {
+    const newOffset = (event.selected * itemsPerPage) % launches?.length;
+    setItemOffset(newOffset);
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -87,7 +88,7 @@ const Launches = (): JSX.Element => {
           ))}
         </Row>
 
-        <div className="d-flex align-items-center">
+        <div className="d-inline-flex py-4 align-items-center position-sticky">
           <ReactPaginate
             breakLabel="..."
             nextLabel=">"

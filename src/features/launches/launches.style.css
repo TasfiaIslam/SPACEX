@@ -3,3 +3,10 @@ ul {
   list-style-type: none;
   gap: 10px;
 }
+
+li {
+  border: 1px solid gray;
+  padding: 6px 6px;
+  border-radius: 20%;
+  background-color: beige;
+}
